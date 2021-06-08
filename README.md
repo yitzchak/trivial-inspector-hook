@@ -1,0 +1,1 @@
+# trivial-inspector-hook
