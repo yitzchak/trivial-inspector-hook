@@ -39,7 +39,12 @@ denoted function, and remains implementation-dependent.")
               (let ((*standard-input* input)
                     (*standard-output* output))
                 (funcall *inspector-hook* object)))))
-    #-sbcl
+    #+(or ccl mezzano)
+    (setf (symbol-value sym)
+          (lambda (object)
+            (when *inspector-hook*
+              (funcall *inspector-hook* object))))
+    #+(or abcl clasp ecl)
     (progn
       ; Transfer documentation. Mostly for CLASP and ECL.
       (setf (documentation sym 'variable)

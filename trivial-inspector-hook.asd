@@ -1,5 +1,5 @@
 (asdf:defsystem #:trivial-inspector-hook
-  :description "A simple compatibility layer CDR6"
+  :description "A simple compatibility layer for CDR-6"
   :author "Tarn W. Burton"
   :license "MIT"
   :components
